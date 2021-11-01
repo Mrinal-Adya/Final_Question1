@@ -28,10 +28,13 @@ public class FlowerDemo {
 		Map<String,String> val2 = new HashMap<>();
 		Map<String,String> val3 = new HashMap<>();
 		
+		Map<String,Map<String,String>> list = new HashMap<>();
+		
 		
 		val1.put("INDIA","LOTUS");
 		val1.put("PAKISTAN","JASMINE");
 		val1.put("NEPAL","LALI GURANS");
+		list.put("ASIA",val1);
 		
 		val2.put("GERMANY","CORN FLOWER");
 		val2.put("FRANCE","LILY");
@@ -40,26 +43,19 @@ public class FlowerDemo {
 		val3.put("EGYPT","BLUE LOTUS");
 		val3.put("NIGERIA","YELLOW TRUMPET ");
 		val3.put("KENYA","ORCHID");
+		list.put("EUROPE", val2);
+		list.put("AFRICA", val3);
 		
-		
-		if(input.equalsIgnoreCase("ASIA")) {
-			//System.out.println(val1);
-			for (String key: val1.keySet()){
-	            System.out.println(key +" 's national flowers is "+val1.get(key));
+		String continent = input.toUpperCase();
+		if(list.containsKey(continent)) {
+			for (String key: list.get(continent).keySet()){
+	            System.out.println(key + "'s National Flower is " + list.get(continent).get(key));
 	        }
 		}
-		else if(input.equalsIgnoreCase("EUROPE")) {
-			for (String key: val2.keySet())
-	            System.out.println(key +" 's national flowers is "+val2.get(key));
-		}
-		else if(input.equalsIgnoreCase("AFRICA")) {
-			for (String key: val3.keySet())
-	            System.out.println(key +" 's national flowers is "+val3.get(key));
-		}
-		else {
-			System.out.println("Input is not valid");
-		}
+		else
+			System.out.println("Plz Enter valid input");
 		
+
 	}
 }
 
